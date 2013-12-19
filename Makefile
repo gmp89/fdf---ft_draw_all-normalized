@@ -6,14 +6,15 @@
 #    By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/12/16 13:47:03 by gpetrov           #+#    #+#              #
-#    Updated: 2013/12/18 15:17:08 by wbeets           ###   ########.fr        #
+#    Updated: 2013/12/19 17:53:14 by gpetrov          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 NAME	= fdf
 SRCS	= main.c\
 		  ft_get_data.c\
-		  ft_calc.c
+		  ft_calc.c\
+		  ft_draw.c
 OBJS	= ${SRCS:.c=.o}
 INC		= ./
 FLAGS	= -Wall
