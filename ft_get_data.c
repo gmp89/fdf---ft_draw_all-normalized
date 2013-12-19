@@ -22,8 +22,8 @@ int		**ft_get_data(int argc, char **argv)
 	i = 0;
 	if (argc != 2)
 	{
-		ft_putstr("usage: ./fdf [data_file]");
-		return (0);
+		ft_putstr("usage: ./fdf [data_file]\n");
+		exit(0);
 	}
 	i = ft_data_size(argv[1]);
 	tab = (int**)malloc((i + 1)* (sizeof(*tab)));

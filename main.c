@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include "header.h"
 
-void		ft_trace(t_point *pt1, t_env new)
+void		ft_trace(t_point *pt1, t_env *new)
 {
 	t_delta	delta;
 
@@ -25,7 +25,7 @@ void		ft_trace(t_point *pt1, t_env new)
 	delta.deltaE = delta.deltaE / 2;
 	while (1)
 	{
-		mlx_pixel_put(new.mlx, new.win, pt1->x, pt1->y, 0xFF00FF);
+		mlx_pixel_put(new->mlx, new->win, pt1->x, pt1->y, 0xFF00FF);
 		if (pt1->x == pt1->x2 && pt1->y == pt1->y2)
 			break ;
 		delta.deltaNE = delta.deltaE;
@@ -65,24 +65,24 @@ int		mouse_hook(int button, int x, int y, t_env *e)
 	return (0);
 }
 
-int		expose_hook(t_env e, int **tab)
+int		expose_hook(t_param *t)
 {
-	ft_draw(e, tab);
+	ft_draw(t->e, t->tab);
 	return (0);
 }
 
 int		main(int argc, char **argv)
 {
 	t_env		new;
-	int		**tab;
+	t_param		t;
 
-	tab = ft_get_data(argc, argv);
+	t.tab = ft_get_data(argc, argv);
 	new.mlx = mlx_init();
 	new.win = mlx_new_window(new.mlx, 720, 720, "42");
+	t.e = &new;
 	mlx_key_hook(new.win, key_hook, &new);
-	mlx_expose_hook(new.win, expose_hook, &new);
+	mlx_expose_hook(new.win, expose_hook, &t);
 	mlx_mouse_hook(new.win, mouse_hook, &new);
-	ft_draw(new, tab);
 	mlx_loop(new.mlx);
 	return (0);
 }

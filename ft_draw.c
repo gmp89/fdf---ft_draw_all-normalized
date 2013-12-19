@@ -12,12 +12,12 @@
 
 #include "header.h"
 
-void		ft_draw(t_env e, int **tab)
+void		ft_draw(t_env *e, int **tab)
 {
 	ft_draw_all(tab, e);
 }
 
-void		ft_draw_while(t_draw_all *draw, int **tab, t_point *point1, t_env e)
+void		ft_draw_while(t_draw_all *draw, int **tab, t_point *point1, t_env *e)
 {
 	draw->fi = draw->i;
 	draw->fj = draw->j;
@@ -26,13 +26,12 @@ void		ft_draw_while(t_draw_all *draw, int **tab, t_point *point1, t_env e)
 	point1->y2 = ft_calc_ay(draw->fi, draw->fj, draw->fz);
 	if (draw->j != 1)
 		ft_trace(&*point1, e);
-	usleep(10000);
 	point1->x = point1->x2;
 	point1->y = point1->y2;
 	draw->j++;
 }
 
-void		ft_draw_while2(t_draw_all *draw, int **tab, t_point *point1, t_env e)
+void		ft_draw_while2(t_draw_all *draw, int **tab, t_point *point1, t_env *e)
 {
 	draw->fi = draw->i;
 	draw->fj = draw->j;
@@ -41,13 +40,12 @@ void		ft_draw_while2(t_draw_all *draw, int **tab, t_point *point1, t_env e)
 	point1->y2 = ft_calc_ay(draw->fi, draw->fj, draw->fz);
 	if (draw->i != 0)
 		ft_trace(&*point1, e);
-	usleep(10000);
 	point1->x = point1->x2;
 	point1->y = point1->y2;
 	draw->i++;
 }
 
-void		ft_draw_all(int **tab, t_env e)
+void		ft_draw_all(int **tab, t_env *e)
 {
 	t_point	point1;
 	t_draw_all	draw;
