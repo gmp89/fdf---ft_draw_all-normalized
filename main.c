@@ -6,11 +6,10 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/16 16:00:08 by gpetrov           #+#    #+#             */
-/*   Updated: 2013/12/19 18:00:15 by gpetrov          ###   ########.fr       */
+/*   Updated: 2013/12/22 18:23:38 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "header.h"
 
 void		ft_trace(t_point *pt1, t_env *new)
@@ -25,7 +24,7 @@ void		ft_trace(t_point *pt1, t_env *new)
 	delta.deltaE = delta.deltaE / 2;
 	while (1)
 	{
-		mlx_pixel_put(new->mlx, new->win, pt1->x, pt1->y, 0xFF00FF);
+		mlx_pixel_put(new->mlx, new->win, pt1->x, pt1->y, 0xFFFFFF);
 		if (pt1->x == pt1->x2 && pt1->y == pt1->y2)
 			break ;
 		delta.deltaNE = delta.deltaE;

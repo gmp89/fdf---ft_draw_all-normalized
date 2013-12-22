@@ -6,7 +6,7 @@
 #    By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/12/16 13:47:03 by gpetrov           #+#    #+#              #
-#    Updated: 2013/12/19 17:53:14 by gpetrov          ###   ########.fr        #
+#    Updated: 2013/12/22 18:20:53 by gpetrov          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -34,6 +34,6 @@ gdb:
 	gdb $(NAME)
 clean:
 	rm -f $(OBJS)
-fclean:
+fclean: clean
 	rm -f $(NAME)
 re: fclean all

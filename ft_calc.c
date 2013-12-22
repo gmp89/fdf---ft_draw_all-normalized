@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wbeets <wbeets@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/12/18 14:30:23 by wbeets            #+#    #+#             */
-/*   Updated: 2013/12/19 18:03:56 by gpetrov          ###   ########.fr       */
+/*   Created: 2013/12/22 18:33:53 by gpetrov           #+#    #+#             */
+/*   Updated: 2013/12/22 18:35:13 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		ft_calc_ax(float i, float j, float z)
 	return ((x = (int)ax) + OFFSET_X);
 }
 
-float my_pow(float x)
+float		my_pow(float x)
 {
 	return (x * x);
 }
@@ -58,11 +58,17 @@ int		ft_abs(int value)
 
 float		sqrt1(const float x)
 {
-	t_union	u;
+	int	i;
+	float	d;
+	float	p;
+	float	a;
 
-	u.x = x;
-	u.i = (1 << 29) + (u.i >> 1) - (1 << 22);
-	u.x = u.x + x / u.x;
-	u.x = 0.25f*u.x + x / u.x;
-	return (u.x);
+	i = 0;
+	while ((i * i) <= x)
+		i++;
+	i--;
+	d = x - i * i;
+	p = d / (2 * i);
+	a = i + p;
+	return (a - (p * p) / ( 2 * a));
 }
